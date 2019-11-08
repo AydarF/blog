@@ -1,7 +1,7 @@
 {
-  "name": "frontendmasters-gatsby",
+  "name": "aydar-fayzullin-blog",
   "private": true,
-  "description": "Bare-bones starter for the Gatsby Frontend Masters workshop.",
+  "description": "Aydar Fayzullin Blog",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
