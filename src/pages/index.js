@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Layout from '../components/layout';
 
-export default () => <>
-    <h1>Hi fellow devs!</h1>
-    <Link to="/about"> Learn about me &rarr;</Link>
-</>;
+export default () => (
+<Layout>
+    <h1>Home</h1>
+    <p>Hi fellow devs!</p>
+    <Link to="/about/"> Learn about me &rarr;</Link>
+</Layout>);
