@@ -1,4 +1,4 @@
-This portfolio is based on a [Frontendmasters.com](https://frontendmasters.com/) course on Gatsby taught by Jason Lengstorf
+This blog is based on a [Frontendmasters.com](https://frontendmasters.com/) course on Gatsby taught by Jason Lengstorf
 
 ## Installation Instructions
 
