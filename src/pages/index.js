@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import PostPreview from '../components/post-preview';
 import usePosts from '../hooks/use-posts';
+import ReadLink from '../components/read-link';
 
 export default () => {
     const posts = usePosts();
@@ -11,7 +11,7 @@ export default () => {
         <Layout>
             <h1>Home</h1>
             <p>Hi fellow devs!</p>
-            <Link to="/about/"> Learn about me &rarr;</Link>
+            <ReadLink to="/about/"> Learn about me &rarr;</ReadLink>
 
             <h2>Read my blog</h2>
             {posts.map(post => (
