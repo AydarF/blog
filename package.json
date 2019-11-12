@@ -19,10 +19,13 @@
     "@mdx-js/react": "^1.5.1",
     "eslint-utils": "^1.4.3",
     "gatsby": "^2.13.50",
+    "gatsby-background-image": "^0.8.18",
     "gatsby-plugin-emotion": "^4.1.13",
     "gatsby-plugin-mdx": "^1.0.55",
     "gatsby-plugin-react-helmet": "^3.1.13",
+    "gatsby-plugin-sharp": "^2.2.37",
     "gatsby-source-filesystem": "^2.1.35",
+    "gatsby-transformer-sharp": "^2.3.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1"
