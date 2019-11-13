@@ -19,7 +19,8 @@ module.exports = {
                 }],
                 plugins: [{
                     resolve: 'gatsby-remark-images'
-                }]
+                }],
+                extensions: [`.mdx`, `.md`],
             }
         },
         {
@@ -35,5 +36,12 @@ module.exports = {
                 name: 'images',
                 path: 'images'
             }
-        }]
+        },
+        {
+            resolve: 'gatsby-source-instagram',
+            options: {
+                username: 'gatsbyjs'
+            }
+        }
+    ]
 }
