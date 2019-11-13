@@ -4,7 +4,6 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 
 const ImageBackground = styled(BackgroundImage)`
-    background-image: url('/images/osman-rana-bos.jpg');
     background-position: top 20% center;
     background-size: cover;
     height: 50vh;
