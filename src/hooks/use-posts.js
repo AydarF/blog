@@ -9,6 +9,7 @@ const usePosts = () => {
                         title
                         slug
                         author
+                        date
                         image {
                             sharp: childImageSharp {
                                 fluid(
@@ -31,6 +32,7 @@ const usePosts = () => {
         title: post.frontmatter.title,
         author: post.frontmatter.author,
         slug: post.frontmatter.slug,
+        date: post.frontmatter.date,
         image: post.frontmatter.image,
         excerpt: post.excerpt
     }))

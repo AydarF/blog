@@ -35,6 +35,7 @@ const Insta = () => {
                        `} 
                     >
                      <Image
+                       key={photo.id} 
                        fluid={photo.fluid}
                        alt={photo.caption}
                        css={css`
@@ -48,7 +49,7 @@ const Insta = () => {
                 ))}
             </div>
             <a href={`https://instagram.com/${username}`}>
-                Seee more posts on instagram
+                See more posts on instagram &rarr;
             </a>
         </>
     );
