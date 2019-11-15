@@ -4,6 +4,8 @@ import Helmet from 'react-helmet'
 import Header from './header';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
+import 'typeface-merriweather';
+
 const Layout = ({ children }) => {
     const { title, description } = useSiteMetadata();
     
@@ -22,9 +24,8 @@ const Layout = ({ children }) => {
                     body {
                         margin: 0;
                         color: #555;
-                        font-family: -apple-system, BlinkMacSystemFont, 
-                            'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
-                            'Open Sans', 'Monserrat', 'Helvetica Neue', sans-serif;
+                        font-family: -apple-system, BlinkMacSystemFont,
+                            'Merriweather', 'Segoe UI', Roboto, 'Monserrat', 'Helvetica Neue', sans-serif;
                         font-size: 14px;
                         line-height: 1.4;
 
@@ -44,7 +45,8 @@ const Layout = ({ children }) => {
                     h6 {
                         color: #222;
                         line-height: 1.1;
-
+                        font-weight: 800;
+                        
                         + * {
                             margin-top: 0.5rem;
                         }    
