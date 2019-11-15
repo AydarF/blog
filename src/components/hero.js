@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 
 const ImageBackground = styled(BackgroundImage)`
@@ -36,7 +36,6 @@ const TextBox = styled('div')`
     p,
     a {
         color: #222;
-        margin-top: 0;
     }
 
     a {
@@ -59,9 +58,9 @@ const Hero = () => {
     return (
         <ImageBackground Tag="section" fluid={image.sharp.fluid} fadeIn="soft">
             <TextBox>
-                <h1>Front End Development + Gatsby = &hearts;</h1>
+                <h1>Hello fellow devs!</h1>
                 <p>
-                    Hello fellow devs <Link to="/about/">Learn about me</Link>
+                    <a rel="noopener noreferrer" href="https://aydarfz.netlify.com" target="_blank">Learn about me</a>
                 </p>
             </TextBox>    
         </ImageBackground>
