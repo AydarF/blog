@@ -20,6 +20,7 @@ const TextBox = styled('div')`
     width: 100%;
     height: 100%;
     padding: 0 5vw 2rem;
+    margin-top: 0;
     background-image: linear-gradient(to top, #ddbbffdd 2rem, #ddbbff00);
     
     @media (min-width: calc(550px + 10vw)) {
