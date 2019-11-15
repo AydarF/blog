@@ -25,11 +25,14 @@ const Layout = ({ children }) => {
                         font-family: -apple-system, BlinkMacSystemFont, 
                             'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
                             'Open Sans', 'Monserrat', 'Helvetica Neue', sans-serif;
-                        font-size: 18px;
+                        font-size: 14px;
                         line-height: 1.4;
 
-                        /* remove margin from the main div that Gatsby mounts into */
+                        @media (min-width: calc(550px + 10vw)) {
+                            font-size: 18px;
+                        }
 
+                        /* remove margin from the main div that Gatsby mounts into */
                         > div {
                             margin-top: 0;
                         }
@@ -64,7 +67,7 @@ const Layout = ({ children }) => {
             <Header />
             <main 
                 css={css`
-                    margin: 2rem auto 4rem;
+                    margin: 2rem auto;
                     max-width: 90vw;
                     width: 550px;
                 `}

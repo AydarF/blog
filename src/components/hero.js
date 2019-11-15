@@ -19,9 +19,14 @@ const TextBox = styled('div')`
     justify-content: flex-end;
     width: 100%;
     height: 100%;
-    padding: 0 calc((100vw - 550px) /2) 2rem;
+    padding: 0 5vw 2rem;
     background-image: linear-gradient(to top, #ddbbffdd 2rem, #ddbbff00);
-
+    
+    @media (min-width: calc(550px + 10vw)) {
+        padding-left: calc((100vw - 550px) / 2);
+        padding-right: calc((100vw - 550px) / 2);
+  }
+  
     h1 {
         text-shadow: 1px 1px 3px #eeddff66;
         font-size: 2.25rem;
