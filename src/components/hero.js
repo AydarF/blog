@@ -60,7 +60,7 @@ const Hero = () => {
             <TextBox>
                 <h1>Hello fellow devs!</h1>
                 <p>
-                    <a rel="noopener noreferrer" href="https://aydarfz.com" target="_blank">Learn about me</a>
+                    <a rel="noopener noreferrer" href="https://aydarfz.com" target="_blank">Check out my portfolio</a>
                 </p>
             </TextBox>    
         </ImageBackground>
