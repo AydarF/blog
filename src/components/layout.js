@@ -58,6 +58,12 @@ const Layout = ({ children }) => {
 
                     li {
                         margin-top: 0.25rem;
+                    }
+
+                    /* styling for the code snippets (<pre> tags) in .mdx and .md files */
+                    .prism-code {
+                        padding: 1.3125rem;
+                        border-radius: 10px;
                     }        
                     }
             `} />
