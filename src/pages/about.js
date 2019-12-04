@@ -9,6 +9,7 @@ export default () => (
         <p css={css`
             margin: 2rem auto;
             line-height: 1.6;
+            text-align: justify;
             `
         }>
             I'm a self-taught Front End Developer and I love building things with JavaScript!

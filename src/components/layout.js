@@ -64,6 +64,7 @@ const Layout = ({ children }) => {
                     .prism-code {
                         padding: 1.3125rem;
                         border-radius: 10px;
+                        overflow: auto;
                     }        
                     }
             `} />
