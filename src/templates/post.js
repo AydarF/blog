@@ -11,7 +11,7 @@ export const query = graphql`
             frontmatter {
                 title
                 author
-                date
+                date(formatString: "MMMM DD, YYYY")
             }
             body
         }
