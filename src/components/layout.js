@@ -79,6 +79,7 @@ const Layout = ({ children }) => {
                     margin: 2rem auto;
                     max-width: 90vw;
                     width: 550px;
+                    word-spacing: 1px;
                 `}
             >{ children }</main>
         </>
