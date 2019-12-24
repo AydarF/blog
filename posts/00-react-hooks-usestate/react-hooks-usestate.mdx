@@ -1,0 +1,106 @@
+---
+title: React Hooks - useState
+slug: react-hooks-usestate
+author: Aydar Fayzullin
+date: 2019-12-23
+image: ./images/octavian-dan.jpg
+---
+React Hooks have been around for more than a year now but it's still 
+exciting every time you use them.
+
+With the advent of React Hooks, the use of class components is not crucial anymore. 
+That said, according to the React team, the class components will still stick around for quite a while.
+
+React Hooks are a way to use state and other React features within functional components. 
+
+We'll start with the <b><mark>useState</mark></b> hook. useState is a hook that lets you add and update React state to functional components. 
+
+First, we import useState hook from React. Then we simply call it, since it's just a function.
+
+```js
+import React, {useState} from 'react';
+const App = () = {
+    useState();
+    return (
+        <div></div>
+    )
+}
+
+export default App;
+```
+The useState hook accepts an argument which is the initial value of the state property and returns 
+the current value of the state property and a method to update that state property. 
+
+The useState hook returns an array. Therefore, you're supposed to use 
+[array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+when you get the value of the useState hook. 
+
+```js
+const [currentValue, method] = useState(initial value);
+``` 
+The first value in the array that the useState hook returns is what you're saving in the state
+and the second value is the function to change/update that value. 
+
+You can use any names for the current value variable and the method. The useState hook is not aware of 
+what you're going to call your items, that is it doesn't know what kind of state you're saving. 
+
+```js
+const [animal, setAnimal] = useState('Christmas Armadillo');
+```
+To avoid confusion, though, it's better to use meaningful variables, e.g.
+
+```js
+const [count, setAnimal] = useState(0);
+```
+It's an unofficial naming convention to start the name of the method with 'set'.
+
+The very first time the component renders a state variable is created and initiated with 
+the default value of 0: <b>useState(0)</b>. The default value is never used on re-renders.
+
+Full example:
+
+```js
+import React, {useState} from 'react';
+const CounterHook = () => {
+    const [count, setCount] = useState(0);
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(prevCount => prevCount + 1)}>Count</button>
+        </div>
+    )
+}
+export default CounterHook;
+```
+
+For better readability, you can create other functions (that are changing/updating the state) 
+inside of your main component:
+```js
+import React, {useState} from 'react';
+const CounterHook = () => {
+    let initialValue = 0;
+    const [count, setCount] = useState(initialValue);
+    const increment = () => setCount(prevCount => prevCount + 1);
+    const decrement = () => setCount(prevCount => prevCount - 1);
+    const reset = () => setCount(initialValue);
+
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+            <button onClick={reset}>Reset</button>
+        </div>
+    )
+}
+export default CounterHook;
+```
+<hr />
+<br />
+
+<h3><b>Thanks for reading!</b></h3>
+
+That's it for now. I'll most likely add some extra use cases later on :)
+If there is a typo or you just wanna say hi, shoot me a message on [Twitter](https://twitter.com/aydarfz)!
+<br />
+  
