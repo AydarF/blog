@@ -1,0 +1,178 @@
+---
+title: React Hooks - useEffect
+slug: react-hooks-useeffect
+author: Aydar Fayzullin
+date: 2019-12-27
+image: ./images/estee-janssens.jpg
+---
+useEffect Hook lets you perform side effects in functional components or,
+in other words, it reaches out outside of a component to do something: e.g.: 
+- DOM manipulation, 
+- fetching data from an API, 
+- setting up subscription or timers and so on. 
+
+It's a much easier way of thinking of the lifecycle methods. It's a replacement for componentDidMount, componentDidUpdate and componentWillUnmount. 
+
+As in case with useState useEffect is simply a function. 
+To use useEffect hook you pass in a parameter.
+The function that is passed in as an argument to the useEffect hook gets executed every time the App component renders. 
+It runs after the first render and after every update. 
+
+```js
+import React, {useState, useEffect} from 'react';
+const App = () = {
+    useEffect(() => {
+        /* componentDidMount code + componentDidUpdate */
+        return () => {
+            /* componentWillUnmount code */
+        }
+    });
+    return (
+        <div></div>
+    )
+}
+
+export default App;
+```
+
+Note that useEffect is placed inside the component that helps to easily access the component's state 
+and props. 
+
+To avoid some performance issues, you can manipulate when to call the function inside useEffect() by specifying a dependency list.
+To run the function once, add an empty dependency list. If there are no dependencies in it, that means it will stay the same all the time, and will not call the function again.
+
+```js
+    useEffect(() => {
+}, [])
+```
+To execute a function conditionally, specify the list of dependencies.
+
+```js
+     useEffect(() => {
+    }, [dependency1, dependency2])
+```
+
+To remove event listeners or stop data fetching with a side effect after the component unmounts, 
+a return statement with a function should be added inside the useEffect() hook.
+
+```js
+const App = () => {
+    useEffect(() => {
+        document.addEventListener();
+        return () => {
+            document.removeEventListener();
+        }
+    }, [])
+}
+```
+
+The bottom line is to always specify a dependency array to avoid performance issues. 
+
+Here's an example of a DOM manupulation:
+```js
+import React, {useState, useEffect} from 'react';
+const App = () = {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+        document.title = `You clicked ${count} times`;
+        }, [count]
+    );
+    return (
+        <div>
+            <button onClick={()=>setCount(count + 1)}>
+                Click {count} times
+            </button>
+        </div>
+    )
+}
+
+export default App;
+```
+In the example above, document title will update every time we increase the count 
+because we added a dependency array ([count]).
+
+As was mentioned above, we can also fetch data using useEffect hook. 
+
+```js
+import React, { useState, useEffect } from "react"
+
+const App = () => {
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts");
+      .then(response => response.json())
+      .then(data => {
+        setPosts(data)
+      })
+  }, [])
+
+  return (
+    <div>
+      <h1>Here will be the output</>
+    </div>
+  )
+}
+```
+Here we fetched data from a fake REST API from JSONPlaceholder 
+and stored the fetched data in our component using useState hook. Since posts that we fetched is an array, 
+we defined the default value of our state as an empty array and stored the posts we just fetched by using the setPosts function.
+
+All we have to do now is to display our data. We can loop through our posts array and display each item.
+
+```js
+import React, { useState, useEffect } from "react"
+
+const App = () => {
+ ...
+  return (
+    <div>
+      <h1>Our awesome posts:/h1>
+      {posts.map(post => (
+        <li>
+          <h2>{post.title}</h2>
+          <p>{post.description}</p>
+        </li>
+      ))}
+    </div>
+  )
+}
+```
+
+If we have a large amount of data, we don't want users to just stare at a blank page and wait for the data to load.
+What we can do is we can add a placeholder so that users will see a loading bar or message.
+
+```js
+import React, { useState,useEffect } from "react"
+
+const App = () => {
+  ...
+  return (
+    <div>
+      <h1>Our awesome posts:</h1>
+      {posts.length > 0 ? (
+        posts.map(post => (
+          <li>
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+          </li>
+        ))
+      ) : (
+        <div>Loading ...</div>
+      )}
+    </div>
+  )
+}
+```
+
+<h3>Closing remark</h3>
+There are actually more advanced ways to fetch data with React Hooks. One of them is using SWR library created by zeit. 
+It has a wide range of features including loading state, error catching, custom fetcher, Suspense mode, React Native support, TypeScript integration and much more.   
+<br />
+
+<h3><b>Thanks for reading!</b></h3>
+
+That's it for now. 
+If there is a typo or you just wanna say hi, shoot me a message on [Twitter](https://twitter.com/aydarfz)!
+<br />
+  
