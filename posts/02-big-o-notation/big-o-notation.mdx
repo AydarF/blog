@@ -1,0 +1,97 @@
+---
+title: Big-O-Notation
+slug: CS-Big-O-Notation
+author: Aydar Fayzullin
+date: 2020-02-27
+image: ./images/estee-janssens.jpg
+---
+
+
+<br />
+<b>The Big-O Notation</b> is a tool that lets us determine the complexity (the number of operations) of an algorithm, helping us measure the performance of a specific algorithm. (For example: O(n). O is the growth rate of the function and n is the length of the list/array to be sorted).  This notation measures the worst case scenario of how quickly the runtime grows when the input gets large. In other words, Big O helps us to determine how long an algorithm takes to run.
+
+The main Big-O terms are:
+
+O(1) - Constant
+
+O(n) - Linear
+
+O(n ^ 2) - Quadratic
+
+O(log n) - Logarithmic
+
+O(2 ^ n) - Exponential
+<br />
+
+<b>Constant  - O(1): </b>Your algorithm will run the same, no matter how many elements there are in your list/arr
+
+
+```js
+function printTheFirstElementOfTheArray(arrayOfItems){
+    console.log(arrayOfItems[0]); // will always print the first element of the array no matter how big the array is;
+}
+ printTheFirstElementOfTheArray([0, 1,2,3,4,5,6,7,8,9]); // 0
+
+```
+<br />
+
+<b>Linear - O(n):</b>  The performance of O(n) algorithm will grow in direct proportion (linearly) to the size of the input. 
+In other words, the more elements there are in your array, the more time it will take for your algorithm to run. 
+A common example is a loop function. 
+
+```js
+let employees = ["Mark", "El", "Jo"];
+function printAllEmployees(arrayOfElements) {
+    for(let i = 0; i < arrayOfElements.length; i++){
+		console.log(arrayOfElements[i]);
+}
+}
+printAllEmployees(employees); // Mark, El, Jo
+
+```
+<br />
+
+<b>Quadratic - O(n^2):</b> Quadratic time complexity is an algorithm whose runtime is directly proportional to the square of the size of the input. 
+You can find examples in nested loops. 
+If the array has n items, the outer loop runs n times and the inner loops runs n times for each iteration of the outer loop resulting in n^2.
+
+```js
+function arrayOfItems(array){
+    	for(let i = 0; i < array.length; i++){
+        		for(let k = 0; k < array.length; k++){
+            		console.log(i,k);
+        		}
+    	}
+} 
+arrayOfItems([1,2,3,4,5]); 
+```
+<br />
+
+<b>Logarithmic - O(log (n)):</b> The runtime it takes for the algorithm to run will flatten out by every step of the code's execution despite the size of the input. 
+This is considered to be the most efficient way of handling large sets of data. For example, if your function takes 1 second to execute the input size of 100, 
+it will take 2 seconds to execute the input size of 1000, 3 seconds the input size of 10000 and so on. 
+The perfect example of the implementation of this algorithm would be a binary search. A binary search cuts the array size in half with each operation.
+A good explanation of using a binary search tree in JavaScript could be found <a target="_blank" href="https://initjs.org/implement-a-binary-search-tree-in-javascript-952a44ee7c26">here</a>.
+<br />
+<br />
+
+<b>Exponential - O(2^n):</b> The runtime of the algorithm doubles with each addition to the input. 
+If 1 item takes 100 seconds to execute, 2 items would  take 200 seconds, 3 items would take 300 seconds and so on. 
+A good example is calculating Fibonacci numbers recursively.  
+
+```js
+function fibonacci (num){
+	if (num <= 1){
+	    return 1;
+    } else {
+        return fibonacci(num - 2) + fibonacci(num -1);
+    }
+}
+```
+
+<h3><b>Thanks for reading!</b></h3>
+
+That's it for now. 
+If there is a typo or you just wanna say hi, shoot me a message on [Twitter](https://twitter.com/aydarfz)!
+<br />
+  
