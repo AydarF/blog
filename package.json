@@ -18,6 +18,7 @@
     "@emotion/styled": "^10.0.23",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
+    "d3": "^5.15.0",
     "eslint-utils": "^1.4.3",
     "gatsby": "^2.13.50",
     "gatsby-background-image": "^0.8.18",
