@@ -67,8 +67,21 @@ const Layout = ({ children }) => {
               border-radius: 10px;
               overflow: auto;
             }
+
+            /* svg charts in big o notation blog post */
+            .svgChartContainer {
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+              justify-content: center;
+              margin: 40px 0;
+              padding: 0 50px 15px;
+            }
+
             svg {
               overflow: visible;
+              width: 100%;
+              background: #eee;
             }
           }
         `}

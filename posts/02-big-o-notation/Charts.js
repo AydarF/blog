@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   select,
   line,
@@ -7,15 +7,38 @@ import {
   axisLeft,
   scaleLinear,
 } from 'd3';
+import ResizeObserver from 'resize-observer-polyfill';
 
-const Charts = props => {
+const useResizeObserver = ref => {
+  const [dimensions, setDimensions] = useState(null);
+  useEffect(() => {
+    const observeTarget = ref.current;
+    const resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        setDimensions(entry.contentRect);
+      });
+    });
+    resizeObserver.observe(observeTarget);
+    return () => {
+      resizeObserver.unobserve(observeTarget);
+    };
+  }, [ref]);
+  return dimensions;
+};
+
+const Charts = ({ data }) => {
   const svgRef = useRef();
-  let margin = { top: 0, right: 0, bottom: 20, left: 50 };
+  const wrapperRef = useRef();
+  const dimensions = useResizeObserver(wrapperRef);
+
+  let margin = { top: 0, right: 0, bottom: 0, left: 0 };
   let width = 350 - margin.left - margin.right;
   let height = 150 - margin.top - margin.bottom;
 
   useEffect(() => {
     const svg = select(svgRef.current);
+
+    if (!dimensions) return;
 
     svg
       .append('svg')
@@ -26,26 +49,26 @@ const Charts = props => {
 
     var yScale = scaleLinear()
       .domain([0, 800])
-      .range([height, 0]);
+      .range([dimensions.height, 0]);
 
     var yAxis = axisLeft(yScale).ticks(5);
     svg.call(yAxis);
 
     var xScale = scaleLinear()
-      .domain([0, props.data.length * 5])
-      .range([0, width]);
+      .domain([0, data.length * 5])
+      .range([0, dimensions.width]);
 
     var xAxis = axisBottom(xScale).ticks(5);
 
     svg
       .append('g')
-      .attr('transform', `translate(0, ${height})`)
+      .attr('transform', `translate(0, ${dimensions.height})`)
       .call(xAxis);
 
     svg
       .append('text')
       .attr('x', '120')
-      .attr('y', '165')
+      .attr('y', '185')
       .attr('text-anchor', 'start')
       .style('fill', 'black')
       .text('Amount of items');
@@ -66,23 +89,17 @@ const Charts = props => {
 
     svg
       .selectAll('.line')
-      .data([props.data])
+      .data([data])
       .enter()
       .append('path')
       .attr('class', 'line')
       .attr('d', myLine)
       .attr('fill', 'none')
       .attr('stroke', 'blue');
-  }, []);
+  }, [dimensions]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '40px 0',
-      }}
-    >
+    <div ref={wrapperRef} className="svgChartContainer">
       <svg ref={svgRef}>
         <g className="x-axis" />
         <g className="y-axis" />
