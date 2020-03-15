@@ -4,6 +4,15 @@ module.exports = {
     description: 'This blog will document my journey to become a programmer',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-100576236-2',
+        head: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+      },
+    },
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
@@ -54,12 +63,6 @@ module.exports = {
         disable: !process.env.ANALYZE_BUNDLE_SIZE,
         generateStatsFile: true,
         analyzerMode: 'static',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-100576236-2',
       },
     },
   ],
