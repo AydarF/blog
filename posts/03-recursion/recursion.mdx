@@ -1,0 +1,77 @@
+---
+title: CS Recursion
+slug: CS-Recursion
+author: Aydar Fayzullin
+date: 2020-03-08
+image: ./images/estee-janssens.jpg
+---
+
+Recursive function is a function that returns itself until a specified condition is met. Calling a function is not necessarily free.
+If you start calling a function 100, 200, 500 times that does carry a cost, especially with memory, since your computer now has to keep track of all these calls.
+If you have a recursion that keeps on going forever, 
+your computer is gonna freak out and then explode, that’s stack overflow 
+(A stack overflow is an undesirable condition in which a particular computer program tries to use more memory space than the call stack has available). 
+
+The first line of any recursion is the base case. The base case is when you stop recursion. 
+The reason why it is first is you tell the function when to stop. If you don’t tell the function when to stop you’ll end up with stack overflow.   
+
+The classic examples of recursion are “calculating the nth Fibonacci number" and "finding the nth Factorial number".
+
+According to Wikipedia:
+<blockquote>Fibonacci numbers form a sequence, called the Fibonacci sequence, 
+such that each number is the sum of the two preceding ones, starting from 0 and 1.</blockquote>
+<br /> 
+This is what that looks like in code using a for loop:
+
+```js
+function fibonacci(){
+	let a = 0, b = 1, f = 1;
+	for(let i = 0; i <= n; i++){
+		f = a + b;
+		a = b;
+		b = f
+	}
+		return f;
+}
+```
+
+Using recursion:
+
+```js
+function fibonacci(n){
+	if(n < 2){ 	// you could do n === 0 or n === 1 but you wanna guard yourself from anyone adding a negative number
+		return 1;
+	} else {
+		return fibonacci(n-1) + fibonacci(n-2)
+	}
+}
+```
+
+Note: 1 is a given number in fibonacci sequence.
+
+According to Wikipedia Factorial is:
+<br />
+<blockquote>the factorial of a positive integer n, denoted by n!, 
+is the product of all positive integers less than or equal to n.</blockquote>
+<br />
+<br />
+This is what that looks like in code:
+
+```js
+function factorial(num){
+	if(num < 2){
+		return 1; 
+	} else {
+		return num * factorial(num - 1);
+	}
+}
+```
+Note: you can think of a recursive function’s body as a loop, whatever is inside the body is going to be looped over a bunch of times.  
+
+
+<h3><b>Thanks for reading!</b></h3>
+
+That's it for now. 
+If there is a typo or you just wanna say hi, shoot me a message on [Twitter](https://twitter.com/aydarfz)!
+<br />
+  
