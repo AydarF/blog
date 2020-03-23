@@ -1,4 +1,5 @@
-This blog is based on a [Frontendmasters.com](https://frontendmasters.com/) course on Gatsby taught by Jason Lengstorf
+This is my personal blog. Built with Gatsby (React + Hooks), MDX, Emotion(CSS-in-JS), GraphQL, D3, Google Analytics. 
+
 
 ## Installation Instructions
 
